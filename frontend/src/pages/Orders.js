@@ -13,7 +13,7 @@ const Orders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/orders/my-orders');
+      const response = await axios.get('https://flyaro-waffle-backend.onrender.com/api/orders/my-orders');
       setOrders(response.data);
     } catch (error) {
       console.error('Error fetching orders:', error);
