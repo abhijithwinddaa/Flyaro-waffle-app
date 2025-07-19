@@ -41,7 +41,7 @@ const AdminProfile = () => {
         updateData.newPassword = formData.newPassword;
       }
 
-      await axios.put('http://localhost:5000/api/admin/profile', updateData);
+      await axios.put('https://flyaro-waffle-backend.onrender.com/api/admin/profile', updateData);
       toast.success('Profile updated successfully');
       
       setFormData({
