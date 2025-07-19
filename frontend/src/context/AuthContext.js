@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('https://your-app-name.onrender.com/api/auth/profile');
+      const response = await axios.get('https://flyaro-waffle-backend.onrender.com/api/auth/profile');
       dispatch({ type: 'LOGIN_SUCCESS', payload: { user: response.data, token: state.token } });
     } catch (error) {
       localStorage.removeItem('token');
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const response = await axios.post('https://your-app-name.onrender.com/api/auth/login', { email, password });
+    const response = await axios.post('https://flyaro-waffle-backend.onrender.com/api/auth/login', { email, password });
     const { token, user } = response.data;
     
     localStorage.setItem('token', token);
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
   };
   
   const googleLogin = async (tokenId) => {
-    const response = await axios.post('https://your-app-name.onrender.com/api/auth/google', { token: tokenId });
+    const response = await axios.post('https://flyaro-waffle-backend.onrender.com/api/auth/google', { token: tokenId });
     const { token, user } = response.data;
     
     localStorage.setItem('token', token);
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (userData) => {
-    const response = await axios.post('https://your-app-name.onrender.com/api/auth/register', userData);
+    const response = await axios.post('https://flyaro-waffle-backend.onrender.com/api/auth/register', userData);
     const { token, user } = response.data;
     
     localStorage.setItem('token', token);
