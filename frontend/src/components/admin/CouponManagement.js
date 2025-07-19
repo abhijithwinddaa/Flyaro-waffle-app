@@ -19,7 +19,7 @@ const CouponManagement = () => {
 
   const fetchCoupons = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/coupons/admin');
+      const response = await axios.get('https://flyaro-waffle-backend.onrender.com/api/coupons/admin');
       setCoupons(response.data);
     } catch (error) {
       toast.error('Failed to fetch coupons');
@@ -31,7 +31,7 @@ const CouponManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/coupons', formData);
+      await axios.post('https://flyaro-waffle-backend.onrender.com/api/coupons', formData);
       toast.success('Coupon created successfully');
       setShowAddForm(false);
       resetForm();
@@ -43,7 +43,7 @@ const CouponManagement = () => {
 
   const toggleCouponStatus = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/coupons/${id}/toggle`);
+      await axios.patch(`https://flyaro-waffle-backend.onrender.com/api/coupons/${id}/toggle`);
       fetchCoupons();
       toast.success('Coupon status updated');
     } catch (error) {
@@ -54,7 +54,7 @@ const CouponManagement = () => {
   const deleteCoupon = async (id) => {
     if (window.confirm('Are you sure you want to delete this coupon?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/coupons/${id}`);
+        await axios.delete(`https://flyaro-waffle-backend.onrender.com/api/coupons/${id}`);
         toast.success('Coupon deleted successfully');
         fetchCoupons();
       } catch (error) {
