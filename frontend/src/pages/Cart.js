@@ -27,7 +27,7 @@ const Cart = () => {
     
     setCouponLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/coupons/verify', { code: couponCode });
+      const response = await axios.post('https://flyaro-waffle-backend.onrender.com/api/coupons/verify', { code: couponCode });
       setAppliedCoupon(response.data);
       toast.success(`Coupon applied! ${response.data.discountPercent}% discount`);
     } catch (error) {
@@ -86,7 +86,7 @@ const Cart = () => {
         discountAmount: calculateDiscount()
       };
 
-      const response = await axios.post('http://localhost:5000/api/orders', orderData);
+      const response = await axios.post('https://flyaro-waffle-backend.onrender.com/api/orders', orderData);
       
       toast.success(`Order placed! Your pickup code is: ${response.data.pickupCode}`);
       clearCart();
