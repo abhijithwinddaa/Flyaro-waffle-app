@@ -14,7 +14,7 @@ const PriceEditor = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/menu/admin/all');
+      const response = await axios.get('https://flyaro-waffle-backend.onrender.com/api/menu/admin/all');
       setItems(response.data);
     } catch (error) {
       toast.error('Failed to fetch items');
@@ -34,7 +34,7 @@ const PriceEditor = () => {
     try {
       // Create an array of promises for all price updates
       const updatePromises = items.map(item => 
-        axios.put(`http://localhost:5000/api/menu/${item._id}`, { price: item.price })
+        axios.put(`https://flyaro-waffle-backend.onrender.com/api/menu/${item._id}`, { price: item.price })
       );
       
       // Wait for all updates to complete
