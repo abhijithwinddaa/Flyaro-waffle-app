@@ -20,7 +20,7 @@ const AdminDashboard = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/orders/admin');
+      const response = await axios.get('https://flyaro-waffle-backend.onrender.com/api/orders/admin');
       setOrders(response.data);
     } catch (error) {
       toast.error('Failed to fetch orders');
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
     if (!pickupCode.trim()) return;
     
     try {
-      const response = await axios.post('http://localhost:5000/api/orders/verify-code', {
+      const response = await axios.post('https://flyaro-waffle-backend.onrender.com/api/orders/verify-code', {
         pickupCode: pickupCode.trim()
       });
       setVerifiedOrder(response.data);
@@ -46,7 +46,7 @@ const AdminDashboard = () => {
 
   const updateOrderStatus = async (orderId, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, { status });
+      await axios.put(`https://flyaro-waffle-backend.onrender.com/api/orders/${orderId}/status`, { status });
       toast.success('Order status updated');
       fetchOrders();
       if (verifiedOrder && verifiedOrder._id === orderId) {
