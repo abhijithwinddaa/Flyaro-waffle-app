@@ -28,7 +28,7 @@ const MenuManagement = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/menu/admin/all');
+      const response = await axios.get('https://flyaro-waffle-backend.onrender.com/api/menu/admin/all');
       setItems(response.data);
     } catch (error) {
       toast.error('Failed to fetch items');
@@ -69,10 +69,10 @@ const MenuManagement = () => {
       }
 
       if (editingItem) {
-        await axios.put(`http://localhost:5000/api/menu/${editingItem._id}`, itemData);
+        await axios.put(`https://flyaro-waffle-backend.onrender.com/api/menu/${editingItem._id}`, itemData);
         toast.success('Item updated successfully');
       } else {
-        await axios.post('http://localhost:5000/api/menu', itemData);
+        await axios.post('https://flyaro-waffle-backend.onrender.com/api/menu', itemData);
         toast.success('Item added successfully');
       }
 
@@ -86,7 +86,7 @@ const MenuManagement = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this item?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/menu/${id}`);
+        await axios.delete(`https://flyaro-waffle-backend.onrender.com/api/menu/${id}`);
         toast.success('Item deleted successfully');
         fetchItems();
       } catch (error) {
